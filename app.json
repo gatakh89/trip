@@ -1,0 +1,12 @@
+{
+  "name": "trip",
+  "displayName": "trip",
+  "expo": {
+    "name": "trip",
+    "slug": "trip",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
