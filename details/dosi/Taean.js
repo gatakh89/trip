@@ -2,14 +2,14 @@ import MapView, { Marker } from 'react-native-maps';
 import React from 'react';
 // import  Marker  from 'react-native-maps';
 import { View, ImageBackground} from 'react-native';
-import { SEOULDATA } from '../dosiDetails/seoul'
+import { TaeanDATA } from '../dosiDetails/taean'
 
 import { ListItem, Avatar } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler'
 
 
-const Seoul = ({ navigation }) =>{
-  const list = SEOULDATA;
+const Taean = ({ navigation }) =>{
+  const list = TaeanDATA;
 
  
     return(
@@ -21,7 +21,7 @@ const Seoul = ({ navigation }) =>{
                 resizeMode="cover" // 'cover', 'contain', 'stretch', 'repeat', 'center' 중 선택 
                 >
         <MapView  style={{width: '100%', height: '50%'}}
-        initialRegion={{latitude: 37.56421, longitude:  127.0016, latitudeDelta: 0.18, longitudeDelta: 0.18,}}
+        initialRegion={{latitude: 36.74924944264066, longitude:126.40837961847375, latitudeDelta: 0.5, longitudeDelta: 0.5,}}
         >
                   {list.map((item, index) => (
               <Marker key={index} coordinate={item.coordinate} title={item.title} 
@@ -53,4 +53,4 @@ const Seoul = ({ navigation }) =>{
   }
 
 
-export default Seoul;
+export default Taean;

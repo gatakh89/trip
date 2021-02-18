@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, ImageBackground } from 'react-native';
 
 import { LISTDATA } from '../List/list'
 
@@ -18,27 +18,35 @@ const Home = ({ navigation }) => {
   
 
   return (
-    <View style={{flex: 1}}>
+    <View>
+      <ImageBackground 
+            	style={{ width: "100%", height: "100%", justifyContent:"center"}}  //View를 꽉채우도록
+                source={require('../details/background1.jpg')}  //이미지경로
+                resizeMode="cover" // 'cover', 'contain', 'stretch', 'repeat', 'center' 중 선택 
+                >
+      <View>
       <ScrollView 
         contentContainerStyle={
-          { flexGrow:1, alignItems:"center", justifyContent:"center"}}
+          { flexGrow:1, alignItems:"flex-start", justifyContent:"center"}}
       >
         {
           list.map((item, i) => (
            <ListItem 
-            containerStyle={{width:"80%"}} 
+            containerStyle={{width:"32%",  justifyContent:"center"}} 
             key={i}
             onPress={()=>{navigation.navigate(item.callId, {id: 1})}}
             >
              <Avatar source={{uri: item.image}} />
-             <ListItem.Content>
-               <ListItem.Title>{item.title}</ListItem.Title>
-               <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
-             </ListItem.Content>
+              <ListItem.Content>
+                <ListItem.Title>{item.title}</ListItem.Title>
+                <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
+              </ListItem.Content>
             </ListItem>
           ))
         }
       </ScrollView>
+      </View> 
+      </ImageBackground>
     </View>
   )
 }

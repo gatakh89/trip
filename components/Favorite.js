@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { View } from 'react-native';
+import { View, ImageBackground  } from 'react-native';
 import { ListItem, Avatar, Icon } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -16,6 +16,11 @@ const Favorite = ({navigation}) => {
 
   return(
     <View style={{flex:1}}>
+       <ImageBackground 
+            	style={{ width: "100%", height: "100%", justifyContent:"center"}}  //View를 꽉채우도록
+                source={require('../details/background1.jpg')}  //이미지경로
+                resizeMode="contain" // 'cover', 'contain', 'stretch', 'repeat', 'center' 중 선택 
+                >
       <ScrollView contentContainerStyle={{ flexGrow: 1, alignItems: "center", justifyContent: 'center' }}>
       {
         actions.map((item, i) => (
@@ -30,6 +35,8 @@ const Favorite = ({navigation}) => {
         ))
       }
       </ScrollView>
+
+      </ImageBackground>
     </View>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View,ImageBackground} from 'react-native';
 import { Card, Button, Icon } from 'react-native-elements'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,12 +9,23 @@ import { removeAction } from '../redux/actions'
 import { SEOULDATA } from '../details/dosiDetails/seoul'
 import { JEJUDATA } from '../details/dosiDetails/jeju'
 import { BUSANDATA } from '../details/dosiDetails/busan'
+import { GangwonDATA } from '../details/dosiDetails/gangwon'
+import { jeonjuDATA } from '../details/dosiDetails/jeonju'
+import { TaeanDATA } from '../details/dosiDetails/taean'
+import { YeosuDATA } from '../details/dosiDetails/yeosu'
+
 
 const Details = ( { route, navigation }) => {
 
   const { id } = route.params;
 
-  const item = SEOULDATA.filter(item => item.id == id)[0] || JEJUDATA.filter(item => item.id == id)[0] || BUSANDATA.filter(item => item.id == id)[0]; 
+  const item = SEOULDATA.filter(item => item.id == id)[0] 
+            || JEJUDATA.filter(item => item.id == id)[0] 
+            || BUSANDATA.filter(item => item.id == id)[0]
+            || jeonjuDATA.filter(item => item.id == id)[0]
+            || TaeanDATA.filter(item => item.id == id)[0]
+            || YeosuDATA.filter(item => item.id == id)[0]
+            || GangwonDATA.filter(item => item.id == id)[0]; 
 
 
   const dispatch = useDispatch();
@@ -32,6 +43,11 @@ const Details = ( { route, navigation }) => {
         justifyContent: "center",
         alignItems: "center"
       }}>
+         <ImageBackground 
+            	style={{ width: "100%", height: "100%", justifyContent:"center"}}  //View를 꽉채우도록
+                source={require('../details/background.jpg')}  //이미지경로
+                resizeMode="contain" // 'cover', 'contain', 'stretch', 'repeat', 'center' 중 선택 
+                >
       <Card>
         <Card.Title>{item.title}</Card.Title>
         <Card.Divider/>
@@ -60,6 +76,7 @@ const Details = ( { route, navigation }) => {
         }
             
       </Card>
+      </ImageBackground>
     </View>
   )
 }

@@ -3,21 +3,22 @@ import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { Image  } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Home from './components/Home'
 import Favorite from './components/Favorite'
 import Weather from './components/Weather'
-import Tool from './components/Tool'
+import Search from './components/Search'
 
 import Seoul from './details/dosi/Seoul'
-import Chungcheong from './details/dosi/Chungcheong'
+import Taean from './details/dosi/Taean'
 import Gangwon from './details/dosi/Gangwon'
 import Jeju from './details/dosi/Jeju'
 import Jeonju from './details/dosi/Jeonju'
 import Busan from './details/dosi/Busan'
-import Gyeongsang from './details/dosi/Gyeongsang'
+import Yeosu from './details/dosi/Yeosu'
 
 import Details from './components/Details'
 
@@ -54,10 +55,10 @@ const screeOptions = ({ route }) => ({
           ? 'calendar'
           : 'calendar-outline'; 
         break;
-      case 'Tool':
+      case 'Search':
         iconName = focused
-          ? 'build'
-          : 'build-outline'; 
+          ? 'search'
+          : 'search-outline'; 
         break;
       case 'Favorite':
         iconName = focused
@@ -71,28 +72,52 @@ const screeOptions = ({ route }) => ({
   },
 })
 
+function BackBtn() {
+  return (
+    <Image
+      source={require('./details/top.jpg')}
+      style={{width: "100%", height: "100%", opacity: 0.3, }}
+    />
+  );
+}
+
 const HomeStackScreen = () => {
   return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={Home} options={{title:"Home", headerTitleAlign:"center"}} />
-      <HomeStack.Screen name="Seoul" component={Seoul} options={{title:"Seoul", headerTitleAlign:"center"}}  />
-      <HomeStack.Screen name="Busan" component={Busan} options={{title:"Busan", headerTitleAlign:"center"}} />
-      <HomeStack.Screen name="Jeonju" component={Jeonju} options={{title:"Jeonju", headerTitleAlign:"center"}} />
-      <HomeStack.Screen name="Jeju" component={Jeju} options={{title:"Jeju", headerTitleAlign:"center"}} />
-      <HomeStack.Screen name="Gangwon" component={Gangwon} options={{title:"Gangwon", headerTitleAlign:"center"}} />
-      <HomeStack.Screen name="Chungcheong" component={Chungcheong} options={{title:"Chungcheong", headerTitleAlign:"center"}} />
-      <HomeStack.Screen name="Gyeongsang" component={Gyeongsang} options={{title:"Gyeongsang", headerTitleAlign:"center"}} />
-
-      <HomeStack.Screen name="Details" component={Details} options={{title:"Details", headerTitleAlign:"center"}}  />
+    <HomeStack.Navigator >
+      <HomeStack.Screen name="Home" component={Home} options={{title:"우리나라 관광지도",headerTitleAlign:"ceter"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="Seoul" component={Seoul} options={{title:"서울", headerTitleAlign:"center" 
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="Busan" component={Busan} options={{title:"부산", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="Jeonju" component={Jeonju} options={{title:"전주", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="Jeju" component={Jeju} options={{title:"제주", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="Gangwon" component={Gangwon} options={{title:"강릉, 양양", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="Taean" component={Taean} options={{title:"태안", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="Yeosu" component={Yeosu} options={{title:"여수", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
     </HomeStack.Navigator>
   )
 }
-
+// ./details/top.jpg
 const FavoriteStackScreen = () => {
   return (
-    <FavoriteStack.Navigator>
-      <FavoriteStack.Screen name="Favorite" component={Favorite} options={{title:"Favorite", headerTitleAlign:"center"}} />
-      <FavoriteStack.Screen name="Details" component={Details} options={{title:"Details", headerTitleAlign:"center"}}  />
+    <FavoriteStack.Navigator
+    style={{ width: "100%", height: "100%", justifyContent:"center"}}  //View를 꽉채우도록
+                source={require('./details/background.jpg')}  //이미지경로
+                resizeMode="contain" // 'cover', 'contain', 'stretch', 'repeat', 'center' 중 선택 
+                
+    >
+      <FavoriteStack.Screen name="Favorite" component={Favorite} options={{title:"좋아요", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <FavoriteStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
     </FavoriteStack.Navigator>
   )
 }
@@ -105,7 +130,7 @@ export default function App() {
         <Tab.Navigator tabBarOptions={tabBarOptions} screenOptions={screeOptions}>
             <Tab.Screen name="Home" component={HomeStackScreen} />
             <Tab.Screen name="Weather" component={Weather} />
-            <Tab.Screen name="Tool" component={Tool} />
+            <Tab.Screen name="Search" component={Search} />
             <Tab.Screen name="Favorite" component={FavoriteStackScreen} />
           </Tab.Navigator>
         </NavigationContainer>
