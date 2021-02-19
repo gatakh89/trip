@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button, ImageBackground } from 'react-native';
+import { View, ImageBackground } from 'react-native';
 
 import { LISTDATA } from '../List/list'
 
@@ -7,15 +7,11 @@ import { ListItem, Avatar } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler'
 
 
-// 함수의 리턴 값이 JSX.Element면
-// React 컴포넌트가 된다.
 
-// JSX를 쓸려면 import React from 'react';
-// Navigator로 화면을 이동할 때 컴포넌트 속성으로 전달됨
 const Home = ({ navigation }) => {
 
   const list = LISTDATA;
-  
+ 
 
   return (
     <View>
@@ -34,7 +30,7 @@ const Home = ({ navigation }) => {
            <ListItem 
             containerStyle={{width:"32%",  justifyContent:"center"}} 
             key={i}
-            onPress={()=>{navigation.navigate(item.callId, {id: 1})}}
+            onPress={()=>{navigation.navigate('RegionList',{id: item.id, regions: item.regions})}}
             >
              <Avatar source={{uri: item.image}} />
               <ListItem.Content>

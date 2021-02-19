@@ -1,8 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
 import { LISTDATA } from '../List/list'
-
-// https://reactnativeelements.com/docs
 import { ListItem } from 'react-native-elements'
 
 const SearchList = ({ navigation, keyword }) => {
@@ -15,7 +13,7 @@ const SearchList = ({ navigation, keyword }) => {
 
     return(
       list.map((item, i) => (
-        <ListItem containerStyle={{width:"80%"}} key={i} bottomDivider onPress={()=>{navigation.navigate(item.callId, {id: item.id})}}>
+        <ListItem containerStyle={{width:"80%"}} key={i} bottomDivider onPress={()=>{navigation.navigate('RegionList',{id: item.id, regions: item.regions})}}>
           <ListItem.Content>
             <ListItem.Title>{item.title}</ListItem.Title>
           </ListItem.Content>

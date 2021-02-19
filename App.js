@@ -12,14 +12,8 @@ import Favorite from './components/Favorite'
 import Map from './components/Map'
 import Search from './components/Search'
 
-import Seoul from './details/dosi/Seoul'
-import Taean from './details/dosi/Taean'
-import Gangwon from './details/dosi/Gangwon'
-import Jeju from './details/dosi/Jeju'
-import Jeonju from './details/dosi/Jeonju'
-import Busan from './details/dosi/Busan'
-import Yeosu from './details/dosi/Yeosu'
 
+import RegionList from './components/RegionList'
 import Details from './components/Details'
 
 
@@ -87,8 +81,7 @@ const MapStackScreen = () => {
     <MapStack.Navigator >
     <MapStack.Screen name="Map" component={Map} options={{title:"우리나라 전도",headerTitleAlign:"ceter"
     ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-     <MapStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"center"
-      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+   
     </MapStack.Navigator>
   )
 
@@ -100,21 +93,9 @@ const HomeStackScreen = () => {
     <HomeStack.Navigator >
       <HomeStack.Screen name="Home" component={Home} options={{title:"우리나라 관광지도",headerTitleAlign:"ceter"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="Seoul" component={Seoul} options={{title:"서울", headerTitleAlign:"center" 
-      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="Busan" component={Busan} options={{title:"부산", headerTitleAlign:"center"
-      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="Jeonju" component={Jeonju} options={{title:"전주", headerTitleAlign:"center"
-      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="Jeju" component={Jeju} options={{title:"제주", headerTitleAlign:"center"
-      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="Gangwon" component={Gangwon} options={{title:"강릉, 양양", headerTitleAlign:"center"
-      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="Taean" component={Taean} options={{title:"태안", headerTitleAlign:"center"
-      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="Yeosu" component={Yeosu} options={{title:"여수", headerTitleAlign:"center"
-      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
       <HomeStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="RegionList" component={RegionList} options={{title:" 도시들", headerTitleAlign:"center"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
     </HomeStack.Navigator>
   )
