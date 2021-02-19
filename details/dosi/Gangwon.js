@@ -15,7 +15,7 @@ const Gangwon = ({ navigation }) =>{
     return(
       
       <View>
-        <MapView  style={{width: '100%', height: '50%'}}
+        <MapView  style={{width: '100%', height: '50%'}} zoomControlEnabled={true}
         initialRegion={{latitude: 37.87271572025364,  longitude: 128.58255821134728, latitudeDelta: 0.8, longitudeDelta: 0.8,}}
         >
                   {list.map((item, index) => (

@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Home from './components/Home'
 import Favorite from './components/Favorite'
-import Weather from './components/Weather'
+import Map from './components/Map'
 import Search from './components/Search'
 
 import Seoul from './details/dosi/Seoul'
@@ -35,6 +35,7 @@ const store = createStore(rootReducer);
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
 const FavoriteStack = createStackNavigator();
+const MapStack = createStackNavigator();
 
 const tabBarOptions= {
   activeTintColor: 'tomato',
@@ -50,10 +51,10 @@ const screeOptions = ({ route }) => ({
           ? 'home'
           : 'home-outline';
         break;
-      case 'Weather':
+      case 'Map':
         iconName = focused
-          ? 'calendar'
-          : 'calendar-outline'; 
+          ? 'map'
+          : 'map-outline'; 
         break;
       case 'Search':
         iconName = focused
@@ -80,6 +81,19 @@ function BackBtn() {
     />
   );
 }
+
+const MapStackScreen = () => {
+  return (
+    <MapStack.Navigator >
+    <MapStack.Screen name="Map" component={Map} options={{title:"우리나라 전도",headerTitleAlign:"ceter"
+    ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+     <MapStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+    </MapStack.Navigator>
+  )
+
+
+};
 
 const HomeStackScreen = () => {
   return (
@@ -118,6 +132,7 @@ const FavoriteStackScreen = () => {
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
       <FavoriteStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"center"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+     
     </FavoriteStack.Navigator>
   )
 }
@@ -129,7 +144,7 @@ export default function App() {
        <NavigationContainer>
         <Tab.Navigator tabBarOptions={tabBarOptions} screenOptions={screeOptions}>
             <Tab.Screen name="Home" component={HomeStackScreen} />
-            <Tab.Screen name="Weather" component={Weather} />
+            <Tab.Screen name="Map" component={MapStackScreen} />
             <Tab.Screen name="Search" component={Search} />
             <Tab.Screen name="Favorite" component={FavoriteStackScreen} />
           </Tab.Navigator>

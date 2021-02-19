@@ -17,10 +17,11 @@ const Busan = ({ navigation }) =>{
       <View>
         <MapView  style={{width: '100%', height: '50%'}}
         initialRegion={{latitude: 35.150504966972214, longitude: 129.07864354280744, latitudeDelta: 0.18, longitudeDelta: 0.18,}}
+        zoomControlEnabled={true}
         >
                   {list.map((item, index) => (
               <Marker key={index} coordinate={item.coordinate} title={item.title} 
-              subtitle={item.subtitle}
+              subtitle={item.subtitle} 
               />
             ))}
        </MapView>
