@@ -30,6 +30,7 @@ const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
 const FavoriteStack = createStackNavigator();
 const MapStack = createStackNavigator();
+const SrearchStack = createStackNavigator();
 
 const tabBarOptions= {
   activeTintColor: 'tomato',
@@ -84,9 +85,20 @@ const MapStackScreen = () => {
    
     </MapStack.Navigator>
   )
+} 
+const SrearchStackScreen = () => {
+  return (
+    <SrearchStack.Navigator >
+     <SrearchStack.Screen name="Search" component={Search} options={{title:" 검색", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+            <SrearchStack.Screen name="RegionList" component={RegionList} options={{title:" 도시들", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+    </SrearchStack.Navigator>
+  )
+
+}
 
 
-};
 
 const HomeStackScreen = () => {
   return (
@@ -126,7 +138,7 @@ export default function App() {
         <Tab.Navigator tabBarOptions={tabBarOptions} screenOptions={screeOptions}>
             <Tab.Screen name="Home" component={HomeStackScreen} />
             <Tab.Screen name="Map" component={MapStackScreen} />
-            <Tab.Screen name="Search" component={Search} />
+            <Tab.Screen name="Search" component={SrearchStackScreen} />
             <Tab.Screen name="Favorite" component={FavoriteStackScreen} />
           </Tab.Navigator>
         </NavigationContainer>

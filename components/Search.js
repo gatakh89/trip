@@ -21,10 +21,7 @@ const Search = ({navigation}) => {
                   resizeMode="contain" // 'cover', 'contain', 'stretch', 'repeat', 'center' 중 선택 
                   >
         
-        <Image
-      source={require('../details/top.jpg')}
-      style={{ width: '100%', height: '17%', alignItems: 'center'}}
-    />
+    
         <View style={{margin:10, width: '100%', height: '88%', alignItems: 'center'}}>
         
           <SearchBar platform={"android"} containerStyle={{width:'80%'}}

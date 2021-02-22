@@ -15,16 +15,14 @@
 // }
 
 const actions = (state = [], action) => {
-  // action의 type별로 state 제어
+
   switch (action.type) {
     case 'ADD_ACTION':
-      // return 변경할 state
-      // 현재 state를  복사하여 변경
+
       return[
-        // state 배열의 요소들을 카피
-        // state ==[{}, {}] ...state -> {}, {}
+
         ...state,
-        // payload 객체 카피
+ 
         {
           ...action.payload
         }

@@ -6,7 +6,7 @@ export const LISTDATA = [
     id: 1,
     title: '서울',
     regions: '서울',
-    image: "https://lh5.googleusercontent.com/proxy/YlCgtq_UwS0ZUsLRoOG_7CdsuG6lBL2NAZl_QO72pic6ACammvoziQi75fTvkO2MAIo1SgOlcvmkjpHOPJw6Bmyn8qXEOWmv2J86kIgtGmo5KO5I4ecxvUNXTxyc6TW9PFhhCsIxoxBgbNVz8Kz2SpVc1HXw3uZj7ugYjJb5jtnB=w326-h223-n-k-no",
+    image: "https://t3.gstatic.com/images?q=tbn:ANd9GcQQo_JkDn0lCzZNQuwRM5KPzglI-OKp4FMI4lZEusm_U3Ii8YncQzRbUcNQEnKXzHSykImWfs51R-o8O0DEYOwoMg",
     subtitle: 'seoul',
   },
   {
