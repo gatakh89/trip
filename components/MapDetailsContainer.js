@@ -18,13 +18,15 @@ const MapContainer = ({ route, navigation }) => {
   const getDosi2 = useCallback(async () => {
   const result = await api.dosi();
   const dosi = result.data.filter(dosilist => dosilist.addr1 == addr1)[0]; 
- 
+  console.log(dosi)
+  const val = dosi.latitude
+  console.log(val)
   const region = {
     latitude: dosi.latitude,
     longitude: dosi.longitude,
     latitudeDelta: dosi.latitudeDelta,
     longitudeDelta: dosi.longitudeDelta}
-    
+    console.log(region)
     setDosi2(region);
   }, [])
   
@@ -41,9 +43,11 @@ const MapContainer = ({ route, navigation }) => {
     const result = await api.usl();
     const { addr1 } = route.params;
     const list3 = result.data.response.body.items.item.filter(dosilist => dosilist.addr1 == addr1); 
+    const list4 =list3.filter(dosilist => dosilist.mapX != null)
    
+   console.log(list4)
     // state를 갱신해서 다시 그리기
-    setDosi(list3);
+    setDosi(list4);
    
   }, [])
 

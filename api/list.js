@@ -14,5 +14,5 @@ export default {
 
 
   usl: () => axios.get(`${baseUrl2}`),
-  
+  search1: (keyword) => axios.get(`${baseUrl3}${keyword}`),
 }

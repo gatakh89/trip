@@ -21,12 +21,12 @@ const Map = ({ navigation, list}) => {
       <View>
       <ScrollView 
         contentContainerStyle={
-          { flexGrow:1, alignItems:"flex-start", justifyContent:"center", }}
+          { flexGrow:1, alignItems:"center", justifyContent:"center", }}
       >
         {
           list.map((item, i) => (
            <ListItem 
-            containerStyle={{width:"80%",  justifyContent:"center", justifyContent: 'center'}} 
+            containerStyle={{width:"70%",  justifyContent:"center", justifyContent: 'center'}} 
             key={i}
             onPress={()=>{navigation.navigate('MapDetails',{addr1: item.addr1})}}
             >

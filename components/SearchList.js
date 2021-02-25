@@ -1,25 +1,37 @@
-import React from 'react';
-import { View } from 'react-native';
-import { LISTDATA } from '../List/list'
+import React, { useEffect, useState, useCallback } from 'react';
+
+// https://reactnativeelements.com/docs
 import { ListItem } from 'react-native-elements'
 
+import api from '../api/list'
+
 const SearchList = ({ navigation, keyword }) => {
-
-  let list = LISTDATA;
-
-
+  
+  const [list, setList] = useState([]);
+ 
+  const getSearch = useCallback(async (keyword) => {
+    if(keyword && keyword.length > 1) {
+      const result = await api.search1(keyword);
+     
+      setList(result.data);
+     
+    }
+  }, [])
+  
+  useEffect(()=> {
+    getSearch(keyword);
+  }, [keyword]);
+  
   if(keyword && keyword.length > 1){
-    list = list.filter(item => item.title.toLocaleLowerCase().indexOf(keyword.toLocaleLowerCase()) > -1 )
-
     return(
       list.map((item, i) => (
-        <ListItem containerStyle={{width:"80%"}} key={i} bottomDivider onPress={()=>{navigation.navigate('RegionList',{id: item.id, regions: item.regions})}}>
+        <ListItem containerStyle={{width:"80%"}} key={i} bottomDivider onPress={()=>{navigation.navigate('MapDetails',{addr1: item.addr1})}}>
           <ListItem.Content>
             <ListItem.Title>{item.title}</ListItem.Title>
           </ListItem.Content>
         </ListItem>
       ))
-    )
+    )  
   } else {
     return (
       <></>

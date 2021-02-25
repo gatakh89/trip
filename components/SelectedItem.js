@@ -6,7 +6,7 @@ const SelectedItem = ({item}) => {
 
   return (
     <View>
-      <Text>{item.id} {item.title}</Text>
+      <Text>{item.tid} {item.title}</Text>
     </View>
   )
 }
