@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import RegionList from './RegionList'
+import Audio from './Audio'
 
 
 import api from '../api/list'
@@ -21,40 +21,31 @@ const HomeContainer = ({ navigation, route }) => {
   //, [data] <- data라는 객체/변수가 생성되거나 바뀔 때 함수가 생성
   // memoizing function 정의
   const getDosi = useCallback(async () => {
-    const result = await api.usl();
-    const { addr1 } = route.params;
-    const list2 = result.data.response.body.items.item.filter(dosilist => dosilist.addr1 == addr1); 
-    //  console.log(list2);
+    const { tid } = route.params;
+    const result = await api.dosi(tid);
+    // console.log(result.data);
     // state를 갱신해서 다시 그리기
-    setDosi(list2);
-   
+    setDosi(result.data);
   }, [])
 
-  // useEffect
-  // 특정 조건에 맞게 실행하는 함수를 정의
-  // , [] 컴포넌트가 처음 마운트 됐을 때 실행되는 함수를 정의
-  // , [data] <- data라는 객체/변수가 생성되거나 바뀔 때 함수가 실행
-  // componentDidMount : event hook
-  // useEffect(()=> {
-  //   getList();
-  // }, [])
+
 
   useEffect(()=>{
-   
+    // navigation 이벤트 리스너를 생성
+    // 반환 값이 이벤트 리스너 해제 함수
     const unsubscribe = navigation.addListener(
       'focus',
       () => {
-        // console.log('focus')
+        console.log('focus')
         getDosi();
       }
     )
-    
-    
+
     return unsubscribe;
   }, [navigation])
 
   return (
-    <RegionList navigation={navigation} route = {route} list={dosi}></RegionList>
+    <Audio navigation={navigation} route={route} list={dosi}></Audio>
   )
 
 }

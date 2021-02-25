@@ -12,7 +12,7 @@ import Favorite from './Favorite'
 import Map from './MapContainer'
 import Search from './Search'
 import MapDetails from './MapDetailsContainer'
-
+import Audio from './AudioContainer'
 import RegionList from './RegionListContainer'
 import Details from './DetailContainer'
 import { useDispatch } from 'react-redux';
@@ -99,11 +99,13 @@ const SrearchStackScreen = () => {
 const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator >
-      <HomeStack.Screen name="Home" component={Home} options={{title:"우리나라 관광지도",headerTitleAlign:"ceter"
+      <HomeStack.Screen name="Home" component={Home} options={{title:"도시 목록",headerTitleAlign:"ceter"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
       <HomeStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"center"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="RegionList" component={RegionList} options={{title:" 도시들", headerTitleAlign:"center"
+      <HomeStack.Screen name="RegionList" component={RegionList} options={{title:" 관광지 목록", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="Audio" component={Audio} options={{title:" 도시들", headerTitleAlign:"center"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
     </HomeStack.Navigator>
   )

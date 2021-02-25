@@ -6,10 +6,17 @@ import SearchList from './SearchList'
 const Search = ({navigation}) => {
 
   const [keyword, setKeyword] = useState("");
+  const [completedKeyword, setCompletedKeyword] = useState("");
 
   const handleSearch = useCallback((search)=>{
-    console.log(search);
+    // console.log(search);
     setKeyword(search);
+  }, []);
+
+  const handleEnd = useCallback((search)=>{
+    console.log("--end--");
+    console.log(search._dispatchInstances.memoizedProps.text);
+    setCompletedKeyword(search._dispatchInstances.memoizedProps.text);
   }, []);
 
 
@@ -27,9 +34,10 @@ const Search = ({navigation}) => {
           <SearchBar platform={"android"} containerStyle={{width:'80%'}}
             placeholder="Type Here..."
             onChangeText={handleSearch}
+            onSubmitEditing={handleEnd}
             value={keyword}
           />
-          <SearchList navigation={navigation} keyword={keyword}></SearchList>
+          <SearchList navigation={navigation} keyword={completedKeyword}></SearchList>
           
         </View>
       </ImageBackground>

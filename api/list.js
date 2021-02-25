@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { baseUrl, baseUrl2 } from './_env'
+import { baseUrl, baseUrl2, baseUrl3 } from './_env'
 
 export default {
   // GET http://....:3000/list

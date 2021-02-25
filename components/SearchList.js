@@ -7,14 +7,16 @@ import api from '../api/list'
 
 const SearchList = ({ navigation, keyword }) => {
   
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(null);
  
   const getSearch = useCallback(async (keyword) => {
-    if(keyword && keyword.length > 1) {
+    console.log("Search List Keyword")
+    console.log(keyword)
+    if (keyword) {
       const result = await api.search1(keyword);
      
-      setList(result.data);
-     
+      setList(result.data.response.body.items.item);
+    
     }
   }, [])
   
@@ -22,10 +24,11 @@ const SearchList = ({ navigation, keyword }) => {
     getSearch(keyword);
   }, [keyword]);
   
-  if(keyword && keyword.length > 1){
+  if(list && keyword && keyword.length > 1){
     return(
+      
       list.map((item, i) => (
-        <ListItem containerStyle={{width:"80%"}} key={i} bottomDivider onPress={()=>{navigation.navigate('MapDetails',{addr1: item.addr1})}}>
+        <ListItem containerStyle={{width:"80%"}} key={i} bottomDivider onPress={()=>{navigation.navigate('Details',{title: item.title, addr1: item.addr1})}}>
           <ListItem.Content>
             <ListItem.Title>{item.title}</ListItem.Title>
           </ListItem.Content>
