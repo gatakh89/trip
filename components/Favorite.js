@@ -1,16 +1,19 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { View, ImageBackground  } from 'react-native';
+import { View, ImageBackground } from 'react-native';
 import { ListItem, Avatar, Icon } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler';
 
-import { removeAction } from '../redux/actions'
+import { removeTask } from '../redux/actions/tasks'
 
-const Favorite = ({navigation}) => {
+const Favorite = ({route, navigation}) => {
 
-  const actions = useSelector(state => state.actions);
-  console.log("--actions state in Actions Component");
-  console.log(actions);
+  console.log("-- route.params --");
+  console.log(route.params);
+
+  const tasks = useSelector(state => state.tasks);
+  console.log("--tasks state in Tasks Component");
+  console.log(tasks);
 
   const dispatch = useDispatch();
 
@@ -23,14 +26,14 @@ const Favorite = ({navigation}) => {
                 >
       <ScrollView contentContainerStyle={{ flexGrow: 1, alignItems: "center", justifyContent: 'center' }}>
       {
-        actions.map((item, i) => (
+        tasks.map((item, i) => (
           <ListItem containerStyle={{width:"80%"}} key={i} onPress={()=>{navigation.navigate("Details", {id: item.id})}}>
             <Avatar source={{uri: item.image}} />
             <ListItem.Content>
               <ListItem.Title>{item.title}</ListItem.Title>
               <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
             </ListItem.Content>
-            <Icon name='close' type='ionicon' color='gray' onPress={()=>{dispatch(removeAction(item.id))}} />
+            <Icon name='close' type='ionicon' color='gray' onPress={()=>{dispatch(removeTask(item.id))}} />
           </ListItem>
         ))
       }

@@ -1,18 +1,16 @@
 import React from 'react';
 import { View, ImageBackground } from 'react-native';
 
-import { LISTDATA } from '../List/list'
 
 import { ListItem, Avatar } from 'react-native-elements'
 import { ScrollView } from 'react-native-gesture-handler'
 
 
 
-const Home = ({ navigation }) => {
+const Home = ({ navigation, list}) => {
 
-  const list = LISTDATA;
- 
 
+//console.log(list);
   return (
     <View>
       <ImageBackground 
@@ -30,7 +28,7 @@ const Home = ({ navigation }) => {
            <ListItem 
             containerStyle={{width:"32%",  justifyContent:"center"}} 
             key={i}
-            onPress={()=>{navigation.navigate('RegionList',{id: item.id, regions: item.regions})}}
+            onPress={()=>{navigation.navigate('RegionList',{addr1: item.addr1})}}
             >
              <Avatar source={{uri: item.image}} />
               <ListItem.Content>
