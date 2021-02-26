@@ -27,13 +27,13 @@ const SearchList = ({ navigation, keyword }) => {
   if(list && keyword && keyword.length > 1){
     return(
       
-      list.map((item, i) => (
-        <ListItem containerStyle={{width:"80%"}} key={i} bottomDivider onPress={()=>{navigation.navigate('Details',{title: item.title, addr1: item.addr1})}}>
+    //  list.map((item, i) => (
+        <ListItem containerStyle={{width:"80%"}}  bottomDivider onPress={()=>{navigation.navigate('MapDetails',{title: list.title, addr1: list.addr1})}}>
           <ListItem.Content>
-            <ListItem.Title>{item.title}</ListItem.Title>
+            <ListItem.Title>{list.title}</ListItem.Title>
           </ListItem.Content>
         </ListItem>
-      ))
+  //    ))
     )  
   } else {
     return (

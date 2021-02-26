@@ -61,7 +61,7 @@ const Seoul = ({  navigation, list }) =>{
                       <ListItem.Subtitle>{item.themeCategory}</ListItem.Subtitle>
                       
                     </ListItem.Content>
-                  {/* <Button style={{width:50}} key={i} onPress={()=>{navigation.navigate("Audio", {tid: item.tid})}}>설명</Button> */}
+                  <Button style={{width:50}} key={i} onPress={()=>{navigation.navigate("Audio", {tid: item.tid})}} title={"설명"}></Button>
                 </ListItem>
                   
                 ))

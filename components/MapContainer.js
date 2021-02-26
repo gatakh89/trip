@@ -9,7 +9,7 @@ import api from '../api/list'
 
 // JSX를 쓸려면 import React from 'react';
 // Navigator로 화면을 이동할 때 컴포넌트 속성으로 전달됨
-const MapContainer = ({ navigation }) => {
+const MapContainer = ({ navigation, route }) => {
 
   // 백엔드에 API요청후 응답 받은 데이터
   // 데이터를 받으면 화면을 다시 렌더링한다.

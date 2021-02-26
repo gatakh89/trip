@@ -15,6 +15,7 @@ import MapDetails from './MapDetailsContainer'
 import Audio from './AudioContainer'
 import RegionList from './RegionListContainer'
 import Details from './DetailContainer'
+import AudioDetails from './AudioDetails'
 import { useDispatch } from 'react-redux';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -85,9 +86,11 @@ const MapStackScreen = () => {
 const SrearchStackScreen = () => {
   return (
     <SrearchStack.Navigator >
-     <SrearchStack.Screen name="Search" component={Search} options={{title:" 검색", headerTitleAlign:"center"
+    <SrearchStack.Screen name="Search" component={Search} options={{title:" 검색", headerTitleAlign:"center"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-            <SrearchStack.Screen name="RegionList" component={RegionList} options={{title:" 도시들", headerTitleAlign:"center"
+    <SrearchStack.Screen name="RegionList" component={RegionList} options={{title:" 도시들", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+    <SrearchStack.Screen name="MapDetails" component={MapDetails} options={{title:" 도시들", headerTitleAlign:"center"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
     </SrearchStack.Navigator>
   )
@@ -103,9 +106,11 @@ const HomeStackScreen = () => {
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
       <HomeStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"center"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="RegionList" component={RegionList} options={{title:" 관광지 목록", headerTitleAlign:"center"
+      <HomeStack.Screen name="RegionList" component={RegionList} options={{title:"관광지 목록", headerTitleAlign:"center"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="Audio" component={Audio} options={{title:" 도시들", headerTitleAlign:"center"
+      <HomeStack.Screen name="Audio" component={Audio} options={{title:"관광지 세부목록", headerTitleAlign:"center"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
+      <HomeStack.Screen name="AudioDetails" component={AudioDetails} options={{title:"관광지 세부설명", headerTitleAlign:"center"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
     </HomeStack.Navigator>
   )

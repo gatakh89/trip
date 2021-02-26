@@ -22,10 +22,12 @@ const HomeContainer = ({ navigation, route }) => {
   // memoizing function 정의
   const getDosi = useCallback(async () => {
     const { tid } = route.params;
-    const result = await api.dosi(tid);
+    const result = await api.usl1();
+    const list2 = result.data.response.body.items.item.filter(dosilist => dosilist.tid == tid)
     // console.log(result.data);
     // state를 갱신해서 다시 그리기
-    setDosi(result.data);
+    console.log(list2);
+    setDosi(list2);
   }, [])
 
 

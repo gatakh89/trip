@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { baseUrl, baseUrl2, baseUrl3 } from './_env'
+import { baseUrl, baseUrl2, baseUrl3, baseUrl4 } from './_env'
 
 export default {
   // GET http://....:3000/list
@@ -15,4 +15,6 @@ export default {
 
   usl: () => axios.get(`${baseUrl2}`),
   search1: (keyword) => axios.get(`${baseUrl3}${keyword}`),
+  usl1: () => axios.get(`${baseUrl4}`),
+  
 }
