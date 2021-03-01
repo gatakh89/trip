@@ -11,10 +11,10 @@ export default {
   //get: (id) => axios.get(`${baseUrl}/dosi/${id}`),
   // GET http://....:3000/list?q=keyword
   search: (keyword) => axios.get(`${baseUrl}/dosi?q=${keyword}`), 
+  get: (id) => axios.get(`${baseUrl}/dosiDetail/${id}`),
 
-
-  usl: () => axios.get(`${baseUrl2}`),
-  search1: (keyword) => axios.get(`${baseUrl3}${keyword}`),
-  usl1: () => axios.get(`${baseUrl4}`),
+  usl: () => axios.get(`${baseUrl}/dosiDetail`),
+  search1: (keyword) => axios.get(`${baseUrl}/dosiDetails?q=${keyword}`),
+  usl1: () => axios.get(`${baseUrl}/dosiDetails`),
   
 }

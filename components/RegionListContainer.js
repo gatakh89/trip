@@ -23,7 +23,7 @@ const HomeContainer = ({ navigation, route }) => {
   const getDosi = useCallback(async () => {
     const result = await api.usl();
     const { addr1 } = route.params;
-    const list2 = result.data.response.body.items.item.filter(dosilist => dosilist.addr1 == addr1); 
+    const list2 = result.data.filter(dosilist => dosilist.addr1 == addr1); 
     //  console.log(list2);
     // state를 갱신해서 다시 그리기
     setDosi(list2);

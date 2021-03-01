@@ -31,7 +31,7 @@ console.log(route.params);
             </View>
 
          
-          <View style={{width: '100%', height: '90%'}}>
+          <View style={{width: '100%', height: '100%'}}>
             
             <ScrollView contentContainerStyle={{ width: '100%', alignItems:"center", justifyContent:"center"}}>
                     <Card>

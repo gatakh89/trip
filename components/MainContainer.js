@@ -13,8 +13,8 @@ import Map from './MapContainer'
 import Search from './Search'
 import MapDetails from './MapDetailsContainer'
 import Audio from './AudioContainer'
-import RegionList from './RegionListContainer'
-import Details from './DetailContainer'
+import RegionList from './RegionList'
+import Details from './Details'
 import AudioDetails from './AudioDetails'
 import { useDispatch } from 'react-redux';
 
@@ -66,8 +66,8 @@ const screeOptions = ({ route }) => ({
 function BackBtn() {
   return (
     <Image
-      source={require('../details/top.jpg')}
-      style={{width: "100%", height: "100%", opacity: 0.3, }}
+      source={require('../details/4.jpg')}
+      style={{width: "100%", height: "100%", opacity: 0.8, }}
     />
   );
 }
@@ -75,9 +75,9 @@ function BackBtn() {
 const MapStackScreen = () => {
   return (
     <MapStack.Navigator >
-    <MapStack.Screen name="Map" component={Map} options={{title:"관광지도",headerTitleAlign:"ceter"
+    <MapStack.Screen name="Map" component={Map} options={{title:"관광지도",headerTitleAlign:"left"
     ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-    <MapStack.Screen name="MapDetails" component={MapDetails} options={{title:"관광지도",headerTitleAlign:"ceter"
+    <MapStack.Screen name="MapDetails" component={MapDetails} options={{title:"관광지도",headerTitleAlign:"left"
     ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
    
     </MapStack.Navigator>
@@ -86,11 +86,11 @@ const MapStackScreen = () => {
 const SrearchStackScreen = () => {
   return (
     <SrearchStack.Navigator >
-    <SrearchStack.Screen name="Search" component={Search} options={{title:" 검색", headerTitleAlign:"center"
+    <SrearchStack.Screen name="Search" component={Search} options={{title:" 검색", headerTitleAlign:"left"
+      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn,   }}  />
+    <SrearchStack.Screen name="RegionList" component={RegionList} options={{title:" 도시들", headerTitleAlign:"left"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-    <SrearchStack.Screen name="RegionList" component={RegionList} options={{title:" 도시들", headerTitleAlign:"center"
-      ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-    <SrearchStack.Screen name="MapDetails" component={MapDetails} options={{title:" 도시들", headerTitleAlign:"center"
+    <SrearchStack.Screen name="MapDetails" component={MapDetails} options={{title:" 도시들", headerTitleAlign:"left"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
     </SrearchStack.Navigator>
   )
@@ -102,15 +102,15 @@ const SrearchStackScreen = () => {
 const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator >
-      <HomeStack.Screen name="Home" component={Home} options={{title:"도시 목록",headerTitleAlign:"ceter"
+      <HomeStack.Screen name="Home" component={Home} options={{title:"  도시들",headerTitleAlign:"left"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"center"
+      <HomeStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"left"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="RegionList" component={RegionList} options={{title:"관광지 목록", headerTitleAlign:"center"
+      <HomeStack.Screen name="RegionList" component={RegionList} options={{title:"관광지 목록", headerTitleAlign:"left"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="Audio" component={Audio} options={{title:"관광지 세부목록", headerTitleAlign:"center"
+      <HomeStack.Screen name="Audio" component={Audio} options={{title:"관광지 세부목록", headerTitleAlign:"left"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <HomeStack.Screen name="AudioDetails" component={AudioDetails} options={{title:"관광지 세부설명", headerTitleAlign:"center"
+      <HomeStack.Screen name="AudioDetails" component={AudioDetails} options={{title:"관광지 세부설명", headerTitleAlign:"left"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
     </HomeStack.Navigator>
   )
@@ -119,14 +119,14 @@ const HomeStackScreen = () => {
 const FavoriteStackScreen = () => {
   return (
     <FavoriteStack.Navigator
-    style={{ width: "100%", height: "100%", justifyContent:"center"}}  //View를 꽉채우도록
+    style={{ width: "100%", height: "100%", justifyContent:"left"}}  //View를 꽉채우도록
                 source={require('../details/background.jpg')}  //이미지경로
-                resizeMode="contain" // 'cover', 'contain', 'stretch', 'repeat', 'center' 중 선택 
+                resizeMode="contain" // 'cover', 'contain', 'stretch', 'repeat', 'left' 중 선택 
                 
     >
-      <FavoriteStack.Screen name="Favorite" component={Favorite} options={{title:"좋아요", headerTitleAlign:"center"
+      <FavoriteStack.Screen name="Favorite" component={Favorite} options={{title:"좋아요", headerTitleAlign:"left"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
-      <FavoriteStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"center"
+      <FavoriteStack.Screen name="Details" component={Details} options={{title:"좋아하는 곳", headerTitleAlign:"left"
       ,headerTitleStyle: {fontWeight: 'bold'}, headerBackground: BackBtn, }}/>
      
     </FavoriteStack.Navigator>
@@ -208,7 +208,7 @@ export default function App() {
 //   container: {
 //     flex: 1,
 //     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
+//     alignItems: 'left',
+//     justifyContent: 'left',
 //   },
 // });

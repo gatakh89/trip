@@ -1,7 +1,6 @@
 import MapView, { Marker } from 'react-native-maps';
 import React, { useRef,useCallback, useEffect, useState } from 'react';
 import {  View, ImageBackground} from 'react-native';
-import api from '../api/list'
 
 
 import { ListItem, Avatar } from 'react-native-elements'
@@ -33,7 +32,7 @@ const Map = ({list, dosi}) => {
                   
                   { list.map((item, index) => ( 
                   <Marker key={index} coordinate={{ latitude: item.mapY, longitude: item.mapX }} title={item.title} 
-                  subtitle={item.subtitle} pinColor={'orange'}
+                  subtitle={item.subtitle} pinColor={'orange'}  
                   />)) }
             </MapView>
             }

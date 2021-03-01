@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import MapDetails from './MapDetails'
 
-
+import {LISTDATA} from '../List/list'
 import api from '../api/list'
 
 // 함수의 리턴 값이 JSX.Element면
@@ -16,8 +16,8 @@ const MapContainer = ({ route, navigation }) => {
 
 
   const getDosi2 = useCallback(async () => {
-  const result = await api.dosi();
-  const dosi = result.data.filter(dosilist => dosilist.addr1 == addr1)[0]; 
+  const dosi = LISTDATA.filter(dosilist => dosilist.addr1 == addr1)[0]; 
+  //const dosi = result.data.filter(dosilist => dosilist.addr1 == addr1)[0]; 
   // console.log(dosi)
   // const val = dosi.latitude
   // console.log(val)
@@ -42,7 +42,7 @@ const MapContainer = ({ route, navigation }) => {
   const getDosi = useCallback(async () => {
     const result = await api.usl();
     const { addr1 } = route.params;
-    const list3 = result.data.response.body.items.item.filter(dosilist => dosilist.addr1 == addr1); 
+    const list3 = result.data.filter(dosilist => dosilist.addr1 == addr1); 
     const list4 =list3.filter(dosilist => dosilist.mapX != null)
    
    //console.log(list4)

@@ -5,7 +5,7 @@ import { ListItem } from 'react-native-elements'
 
 import api from '../api/list'
 
-const SearchList = ({ navigation, keyword }) => {
+const SearchList = ({ navigation, keyword, route }) => {
   
   const [list, setList] = useState(null);
  
@@ -15,7 +15,7 @@ const SearchList = ({ navigation, keyword }) => {
     if (keyword) {
       const result = await api.search1(keyword);
      
-      setList(result.data.response.body.items.item);
+      setList(result.data);
     
     }
   }, [])
@@ -27,13 +27,19 @@ const SearchList = ({ navigation, keyword }) => {
   if(list && keyword && keyword.length > 1){
     return(
       
-    //  list.map((item, i) => (
-        <ListItem containerStyle={{width:"80%"}}  bottomDivider onPress={()=>{navigation.navigate('MapDetails',{title: list.title, addr1: list.addr1})}}>
+      list.map((item, i) => (
+      
+        <ListItem containerStyle={{width:"80%"}}  bottomDivider onPress={()=>{navigation.navigate("AudioDetails", 
+        {title: item.title, audioTitle: item.audioTitle, script: item.script, audioTitle: item.audioTitle, imageUrl: item.imageUrl, audioUrl: item.audioUrl},
+       )}}>
           <ListItem.Content>
-            <ListItem.Title>{list.title}</ListItem.Title>
+         
+            <ListItem.Title>{item.title}</ListItem.Title>
+          
           </ListItem.Content>
         </ListItem>
-  //    ))
+        
+      ))
     )  
   } else {
     return (

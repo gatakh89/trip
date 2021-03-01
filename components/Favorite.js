@@ -28,7 +28,7 @@ const Favorite = ({route, navigation}) => {
       {
         tasks.map((item, i) => (
           <ListItem containerStyle={{width:"80%"}} key={i} onPress={()=>{navigation.navigate("Details", {id: item.id})}}>
-            <Avatar source={{uri: item.image}} />
+            <Avatar source={{uri: item.imageUrl}} />
             <ListItem.Content>
               <ListItem.Title>{item.title}</ListItem.Title>
               <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
